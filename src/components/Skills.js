@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaReact, FaPython, FaJava, FaDatabase, FaDocker, FaAws } from 'react-icons/fa';
-import { SiJavascript, SiTypescript, SiNodedotjs, SiMongodb, SiPostgresql, SiRedis, SiKubernetes, SiGit, SiJenkins, SiJira } from 'react-icons/si';
+import { FaReact, FaPython, FaJava, FaDocker, FaAws } from 'react-icons/fa';
+import { SiJavascript, SiNodedotjs, SiMongodb, SiPostgresql, SiGit, SiJenkins, SiJira } from 'react-icons/si';
 import './Skills.css';
 
 const Skills = () => {

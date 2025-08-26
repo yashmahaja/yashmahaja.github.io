@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiGithub, FiExternalLink, FiCode, FiDatabase, FiServer } from 'react-icons/fi';
+import { FiGithub, FiExternalLink, FiCode } from 'react-icons/fi';
 import { FaReact, FaPython, FaJava } from 'react-icons/fa';
-import { SiJavascript, SiNodedotjs, SiMongodb, SiPostgresql, SiDocker } from 'react-icons/si';
+import { SiJavascript, SiPostgresql, SiDocker } from 'react-icons/si';
 import './Projects.css';
 
 const Projects = () => {
