@@ -27,7 +27,6 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://yashmahaja.github.io",
   "browserslist": {
     "production": [
       ">0.2%",
