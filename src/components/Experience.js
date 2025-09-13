@@ -66,7 +66,8 @@ const Experience = () => {
       name: 'AWS Certified Solutions Architect - Associate',
       issuer: 'Amazon Web Services',
       date: '2025',
-      credential: 'AWS-SAA'
+      credential: 'AWS-SAA',
+      badgeUrl: 'https://www.credly.com/badges/a9332515-b984-48f4-ac49-a934eef74708/public_url'
     }
   ];
 
@@ -156,8 +157,11 @@ const Experience = () => {
             
             <div className="certifications-grid">
               {certifications.map((cert, index) => (
-                <motion.div
+                <motion.a
                   key={index}
+                  href={cert.badgeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="certification-card"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -170,7 +174,7 @@ const Experience = () => {
                   </div>
                   <p className="certification-issuer">{cert.issuer}</p>
                   <p className="certification-credential">Credential: {cert.credential}</p>
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </motion.div>

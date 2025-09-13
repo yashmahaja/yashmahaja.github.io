@@ -197,6 +197,9 @@
   border: 1px solid var(--border-color);
   transition: all 0.1s ease;
   transform: translateZ(0);
+  text-decoration: none;
+  display: block;
+  color: inherit;
 }
 
 .certification-card:hover {
