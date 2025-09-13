@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiGithub, FiExternalLink, FiCode } from 'react-icons/fi';
 import { FaReact, FaPython, FaJava } from 'react-icons/fa';
-import { SiJavascript, SiPostgresql, SiDocker } from 'react-icons/si';
+import { SiJavascript, SiPostgresql, SiDocker, SiMongodb } from 'react-icons/si';
 import './Projects.css';
 
 const Projects = () => {
@@ -41,51 +41,15 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Battery Optimization Dashboard',
-      description: 'React-Redux dashboard for energy clients displaying battery optimization metrics. Features lazy loading, code splitting, and 80% reduction in load times.',
+      title: 'Flickbase - Picture Sharing Platform',
+      description: 'Flickbase is a picture-sharing web application built using the MERN stack (MongoDB, Express, React, Node.js). Features user authentication with JWT tokens, admin and client roles, photo upload functionality, infinite scroll for smooth loading, and image color analysis using react-palette. Implemented with Material-UI for modern UI components and Docker for containerization.',
       image: '/api/placeholder/400/250',
-      category: 'frontend',
-      technologies: ['React.js', 'Redux', 'JavaScript', 'CSS3', 'REST APIs'],
-      icons: [<FaReact />, <SiJavascript />],
-      github: '#',
+      category: 'fullstack',
+      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Material-UI', 'Docker', 'Redux Toolkit'],
+      icons: [<FaReact />, <SiMongodb />, <SiDocker />],
+      github: 'https://github.com/yashmahaja/Flickbase',
       live: '#',
       featured: true
-    },
-    {
-      id: 4,
-      title: 'IESO Financial Reporting System',
-      description: 'Automated financial reporting system using AWS Step Functions and Lambda. Queries IESO portal APIs, calculates revenue metrics, and writes results to DynamoDB with 99% reduction in report generation time.',
-      image: '/api/placeholder/400/250',
-      category: 'backend',
-      technologies: ['Python', 'AWS Lambda', 'AWS Step Functions', 'DynamoDB', 'FastAPI'],
-      icons: [<FaPython />, <SiDocker />],
-      github: '#',
-      live: '#',
-      featured: false
-    },
-    {
-      id: 5,
-      title: 'OCR ETL Pipeline',
-      description: 'OCR-based ETL pipeline using Python and Azure Form Recognizer to extract key data from PDF invoices. Converts data into structured JSON files and stores in AWS S3.',
-      image: '/api/placeholder/400/250',
-      category: 'backend',
-      technologies: ['Python', 'Azure Form Recognizer', 'AWS S3', 'ETL', 'JSON'],
-      icons: [<FaPython />, <SiDocker />],
-      github: '#',
-      live: '#',
-      featured: false
-    },
-    {
-      id: 6,
-      title: 'Personal Portfolio Website',
-      description: 'A modern, responsive portfolio website built with React and Framer Motion. Features smooth animations, dark mode, and optimized performance.',
-      image: '/api/placeholder/400/250',
-      category: 'frontend',
-      technologies: ['React', 'Framer Motion', 'CSS3', 'JavaScript'],
-      icons: [<FaReact />, <SiJavascript />],
-      github: 'https://github.com/yashmahaja/Personal-Portfolio',
-      live: 'https://yashm_u2a9cyg.github.io/Personal-Portfolio',
-      featured: false
     }
   ];
 
