@@ -33,10 +33,8 @@ const Layout = ({ children }) => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
-  // Handle scroll spy for active section (only on main page)
+  // Handle scroll spy for active section
   useEffect(() => {
-    if (location.pathname !== '/') return;
-
     const handleScroll = () => {
       const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
@@ -52,31 +50,21 @@ const Layout = ({ children }) => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [location.pathname]);
+  }, []);
 
-  // Reset active section when navigating to blogs
+  // Set active section based on current path
   useEffect(() => {
-    if (location.pathname === '/blogs') {
-      setActiveSection('blogs');
-    } else if (location.pathname === '/') {
-      setActiveSection('home');
-    }
-  }, [location.pathname]);
-
-  // Handle hash navigation on page load
-  useEffect(() => {
-    if (location.pathname === '/') {
-      const hash = window.location.hash.substring(1);
-      if (hash && ['home', 'about', 'skills', 'experience', 'projects', 'contact'].includes(hash)) {
-        setTimeout(() => {
-          const element = document.getElementById(hash);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            setActiveSection(hash);
-          }
-        }, 100);
-      }
-    }
+    const pathToSection = {
+      '/': 'home',
+      '/about': 'about',
+      '/skills': 'skills',
+      '/experience': 'experience',
+      '/projects': 'projects',
+      '/contact': 'contact',
+      '/blogs': 'blogs'
+    };
+    
+    setActiveSection(pathToSection[location.pathname] || 'home');
   }, [location.pathname]);
 
   const toggleDarkMode = useCallback(() => {
@@ -93,7 +81,7 @@ const Layout = ({ children }) => {
       return;
     }
     
-    // For other sections, scroll smoothly
+    // For other sections, scroll smoothly after navigation
     setTimeout(() => {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -108,13 +96,13 @@ const Layout = ({ children }) => {
 
   // Memoize navigation items
   const navItems = useMemo(() => [
-    { id: 'home', label: 'Home', sectionId: 'home', path: '/#home' },
-    { id: 'about', label: 'About', sectionId: 'about', path: '/#about' },
-    { id: 'skills', label: 'Skills', sectionId: 'skills', path: '/#skills' },
-    { id: 'experience', label: 'Experience', sectionId: 'experience', path: '/#experience' },
-    { id: 'projects', label: 'Projects', sectionId: 'projects', path: '/#projects' },
+    { id: 'home', label: 'Home', sectionId: 'home', path: '/' },
+    { id: 'about', label: 'About', sectionId: 'about', path: '/about' },
+    { id: 'skills', label: 'Skills', sectionId: 'skills', path: '/skills' },
+    { id: 'experience', label: 'Experience', sectionId: 'experience', path: '/experience' },
+    { id: 'projects', label: 'Projects', sectionId: 'projects', path: '/projects' },
     { id: 'blogs', label: 'Blogs', sectionId: 'blogs', path: '/blogs' },
-    { id: 'contact', label: 'Contact', sectionId: 'contact', path: '/#contact' }
+    { id: 'contact', label: 'Contact', sectionId: 'contact', path: '/contact' }
   ], []);
 
   // Memoize social links
@@ -153,29 +141,16 @@ const Layout = ({ children }) => {
           </motion.div>
 
           <div className="nav-menu">
-            {navItems.map((item) => {
-              if (item.sectionId === 'blogs') {
-                return (
-                  <Link
-                    key={item.id}
-                    to={item.path}
-                    className={`nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
-                    onClick={() => handleNavClick(item.sectionId)}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              }
-              return (
-                <button
-                  key={item.id}
-                  className={`nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
-                  onClick={() => handleNavClick(item.sectionId)}
-                >
-                  {item.label}
-                </button>
-              );
-            })}
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.path}
+                className={`nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
+                onClick={() => handleNavClick(item.sectionId)}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
 
           <div className="nav-controls">
@@ -204,29 +179,16 @@ const Layout = ({ children }) => {
               className="mobile-menu"
               {...mobileMenuVariants}
             >
-              {navItems.map((item) => {
-                if (item.sectionId === 'blogs') {
-                  return (
-                    <Link
-                      key={item.id}
-                      to={item.path}
-                      className={`mobile-nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
-                      onClick={() => handleNavClick(item.sectionId)}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                }
-                return (
-                  <button
-                    key={item.id}
-                    className={`mobile-nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
-                    onClick={() => handleNavClick(item.sectionId)}
-                  >
-                    {item.label}
-                  </button>
-                );
-              })}
+              {navItems.map((item) => (
+                <Link
+                  key={item.id}
+                  to={item.path}
+                  className={`mobile-nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
+                  onClick={() => handleNavClick(item.sectionId)}
+                >
+                  {item.label}
+                </Link>
+              ))}
               <div className="mobile-social">
                 {socialLinks.map((link) => (
                   <a 

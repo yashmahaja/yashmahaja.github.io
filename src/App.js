@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 
 // Components for SPA sections
@@ -56,6 +56,11 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<MainSPA />} />
+          <Route path="/about" element={<MainSPA />} />
+          <Route path="/skills" element={<MainSPA />} />
+          <Route path="/experience" element={<MainSPA />} />
+          <Route path="/projects" element={<MainSPA />} />
+          <Route path="/contact" element={<MainSPA />} />
           <Route path="/blogs" element={<BlogsPage />} />
         </Routes>
       </Layout>
