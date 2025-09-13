@@ -7,6 +7,7 @@ import './Layout.css';
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
   const shouldReduceMotion = useReducedMotion();
 
@@ -32,23 +33,73 @@ const Layout = ({ children }) => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
-  // Scroll to top when location changes
+  // Handle scroll spy for active section (only on main page)
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (location.pathname !== '/') return;
+
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
+
+  // Reset active section when navigating to blogs
+  useEffect(() => {
+    if (location.pathname === '/blogs') {
+      setActiveSection('blogs');
+    } else if (location.pathname === '/') {
+      setActiveSection('home');
+    }
+  }, [location.pathname]);
+
+  // Handle hash navigation on page load
+  useEffect(() => {
+    if (location.pathname === '/') {
+      const hash = window.location.hash.substring(1);
+      if (hash && ['home', 'about', 'skills', 'experience', 'projects', 'contact'].includes(hash)) {
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            setActiveSection(hash);
+          }
+        }, 100);
+      }
+    }
   }, [location.pathname]);
 
   const toggleDarkMode = useCallback(() => {
     setDarkMode(prev => !prev);
   }, []);
 
-  const closeMobileMenu = useCallback(() => {
-    setIsMenuOpen(false);
-  }, []);
 
-  const handleNavClick = useCallback(() => {
-    // Close mobile menu and scroll to top
+  const handleNavClick = useCallback((sectionId) => {
+    // Close mobile menu
     setIsMenuOpen(false);
-    window.scrollTo(0, 0);
+    
+    // If it's blogs, let the Link handle the navigation
+    if (sectionId === 'blogs') {
+      return;
+    }
+    
+    // For other sections, scroll smoothly
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   }, []);
 
   const toggleMobileMenu = useCallback(() => {
@@ -57,12 +108,13 @@ const Layout = ({ children }) => {
 
   // Memoize navigation items
   const navItems = useMemo(() => [
-    { id: 'home', label: 'Home', path: '/' },
-    { id: 'blogs', label: 'Blogs', path: '/blogs' },
-    { id: 'about', label: 'About', path: '/about' },
-    { id: 'projects', label: 'Projects', path: '/projects' },
-    { id: 'skills', label: 'Skills', path: '/skills' },
-    { id: 'experience', label: 'Experience', path: '/experience' }
+    { id: 'home', label: 'Home', sectionId: 'home', path: '/#home' },
+    { id: 'about', label: 'About', sectionId: 'about', path: '/#about' },
+    { id: 'skills', label: 'Skills', sectionId: 'skills', path: '/#skills' },
+    { id: 'experience', label: 'Experience', sectionId: 'experience', path: '/#experience' },
+    { id: 'projects', label: 'Projects', sectionId: 'projects', path: '/#projects' },
+    { id: 'blogs', label: 'Blogs', sectionId: 'blogs', path: '/blogs' },
+    { id: 'contact', label: 'Contact', sectionId: 'contact', path: '/#contact' }
   ], []);
 
   // Memoize social links
@@ -95,7 +147,7 @@ const Layout = ({ children }) => {
             className="nav-logo"
             {...logoVariants}
           >
-            <Link to="/" className="logo-link" onClick={handleNavClick}>
+            <Link to="/" className="logo-link" onClick={() => handleNavClick('home')}>
               <span className="text-gradient">&lt;/&gt; Yash Mahajan</span>
             </Link>
           </motion.div>
@@ -105,8 +157,8 @@ const Layout = ({ children }) => {
               <Link
                 key={item.id}
                 to={item.path}
-                className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                onClick={handleNavClick}
+                className={`nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
+                onClick={() => handleNavClick(item.sectionId)}
               >
                 {item.label}
               </Link>
@@ -143,8 +195,8 @@ const Layout = ({ children }) => {
                 <Link
                   key={item.id}
                   to={item.path}
-                  className={`mobile-nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                  onClick={closeMobileMenu}
+                  className={`mobile-nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
+                  onClick={() => handleNavClick(item.sectionId)}
                 >
                   {item.label}
                 </Link>
