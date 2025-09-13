@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiGithub, FiExternalLink, FiCode } from 'react-icons/fi';
 import { FaReact, FaPython, FaJava } from 'react-icons/fa';
-import { SiJavascript, SiPostgresql, SiDocker, SiMongodb } from 'react-icons/si';
+import { SiPostgresql, SiDocker, SiMongodb } from 'react-icons/si';
 import './Projects.css';
 
 const Projects = () => {
