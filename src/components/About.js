@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiMapPin, FiCalendar, FiBook, FiAward } from 'react-icons/fi';
+import { FiMapPin, FiAward } from 'react-icons/fi';
 import './About.css';
 
 const About = () => {
@@ -15,9 +15,7 @@ const About = () => {
 
   // Memoize stats to prevent unnecessary re-renders
   const stats = useMemo(() => [
-    { icon: <FiBook />, label: 'Projects Completed', value: '15+' },
-    { icon: <FiAward />, label: 'Years Experience', value: '3+' },
-    { icon: <FiCalendar />, label: 'Current Year', value: '2025' },
+    { icon: <FiAward />, label: 'Years Experience', value: '2+' },
     { icon: <FiMapPin />, label: 'Location', value: 'San Jose, CA' }
   ], []);
 

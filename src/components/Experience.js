@@ -85,7 +85,7 @@ const Experience = () => {
             Work <span className="text-gradient">Experience</span>
           </h2>
           <p className="section-subtitle">
-            My professional journey and achievements
+            My professional journey and achievements - 2+ years of experience
           </p>
         </motion.div>
 
@@ -125,7 +125,6 @@ const Experience = () => {
                 <p className="experience-description">{exp.description}</p>
                 
                 <div className="experience-achievements">
-                  <h4>Achievements:</h4>
                   <ul>
                     {exp.achievements.map((achievement, achievementIndex) => (
                       <li key={achievementIndex}>{achievement}</li>

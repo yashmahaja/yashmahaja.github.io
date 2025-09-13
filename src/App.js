@@ -7,7 +7,6 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
-import Projects from './components/Projects';
 import Contact from './components/Contact';
 
 // Pages for routing
@@ -37,10 +36,6 @@ const MainSPA = () => {
         <Experience />
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="spa-section">
-        <Projects />
-      </section>
 
       {/* Contact Section */}
       <section id="contact" className="spa-section">
@@ -59,7 +54,6 @@ function App() {
           <Route path="/about" element={<MainSPA />} />
           <Route path="/skills" element={<MainSPA />} />
           <Route path="/experience" element={<MainSPA />} />
-          <Route path="/projects" element={<MainSPA />} />
           <Route path="/contact" element={<MainSPA />} />
           <Route path="/blogs" element={<BlogsPage />} />
         </Routes>

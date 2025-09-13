@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaReact, FaPython, FaJava, FaDocker, FaAws } from 'react-icons/fa';
-import { SiJavascript, SiNodedotjs, SiMongodb, SiPostgresql, SiGit, SiJenkins, SiJira } from 'react-icons/si';
+import { FaReact, FaPython, FaJava, FaDocker, FaAws, FaHtml5, FaCss3Alt, FaAngular } from 'react-icons/fa';
+import { SiJavascript, SiNodedotjs, SiMongodb, SiPostgresql, SiGit, SiJenkins, SiJira, SiDjango, SiFlask, SiTerraform } from 'react-icons/si';
 import './Skills.css';
 
 const Skills = () => {
@@ -11,47 +11,35 @@ const Skills = () => {
     triggerOnce: true
   });
 
-  const skillCategories = [
-    {
-      title: 'Languages',
-      skills: [
-        { name: 'Python', icon: <FaPython />, level: 90 },
-        { name: 'Java', icon: <FaJava />, level: 85 },
-        { name: 'JavaScript', icon: <SiJavascript />, level: 85 },
-        { name: 'HTML/CSS', icon: <SiJavascript />, level: 90 },
-        { name: 'C/C++', icon: <FaJava />, level: 80 }
-      ]
-    },
-    {
-      title: 'Frontend & Frameworks',
-      skills: [
-        { name: 'React.js', icon: <FaReact />, level: 90 },
-        { name: 'Angular.js', icon: <FaReact />, level: 75 },
-        { name: 'Node.js', icon: <SiNodedotjs />, level: 80 },
-        { name: 'Django', icon: <FaPython />, level: 85 },
-        { name: 'Flask', icon: <FaPython />, level: 80 }
-      ]
-    },
-    {
-      title: 'Cloud & Databases',
-      skills: [
-        { name: 'AWS', icon: <FaAws />, level: 85 },
-        { name: 'MySQL', icon: <SiPostgresql />, level: 80 },
-        { name: 'MongoDB', icon: <SiMongodb />, level: 75 },
-        { name: 'Azure', icon: <FaAws />, level: 75 },
-        { name: 'DynamoDB', icon: <SiMongodb />, level: 80 }
-      ]
-    },
-    {
-      title: 'DevOps & Tools',
-      skills: [
-        { name: 'Docker', icon: <FaDocker />, level: 80 },
-        { name: 'Terraform', icon: <FaDocker />, level: 75 },
-        { name: 'Git', icon: <SiGit />, level: 90 },
-        { name: 'Jenkins', icon: <SiJenkins />, level: 75 },
-        { name: 'Jira', icon: <SiJira />, level: 80 }
-      ]
-    }
+  const skills = [
+    // Languages
+    { name: 'Python', icon: <FaPython />, category: 'Languages', level: 90 },
+    { name: 'Java', icon: <FaJava />, category: 'Languages', level: 85 },
+    { name: 'JavaScript', icon: <SiJavascript />, category: 'Languages', level: 85 },
+    { name: 'HTML5', icon: <FaHtml5 />, category: 'Languages', level: 90 },
+    { name: 'CSS3', icon: <FaCss3Alt />, category: 'Languages', level: 90 },
+    { name: 'C++', icon: <FaJava />, category: 'Languages', level: 80 },
+    
+    // Frontend & Frameworks
+    { name: 'React.js', icon: <FaReact />, category: 'Frontend', level: 90 },
+    { name: 'Angular', icon: <FaAngular />, category: 'Frontend', level: 75 },
+    { name: 'Node.js', icon: <SiNodedotjs />, category: 'Backend', level: 80 },
+    { name: 'Django', icon: <SiDjango />, category: 'Backend', level: 85 },
+    { name: 'Flask', icon: <SiFlask />, category: 'Backend', level: 80 },
+    
+    // Cloud & Databases
+    { name: 'AWS', icon: <FaAws />, category: 'Cloud', level: 85 },
+    { name: 'MySQL', icon: <SiPostgresql />, category: 'Database', level: 80 },
+    { name: 'MongoDB', icon: <SiMongodb />, category: 'Database', level: 75 },
+    { name: 'Azure', icon: <FaAws />, category: 'Cloud', level: 75 },
+    { name: 'DynamoDB', icon: <SiMongodb />, category: 'Database', level: 80 },
+    
+    // DevOps & Tools
+    { name: 'Docker', icon: <FaDocker />, category: 'DevOps', level: 80 },
+    { name: 'Terraform', icon: <SiTerraform />, category: 'DevOps', level: 75 },
+    { name: 'Git', icon: <SiGit />, category: 'Tools', level: 90 },
+    { name: 'Jenkins', icon: <SiJenkins />, category: 'DevOps', level: 75 },
+    { name: 'Jira', icon: <SiJira />, category: 'Tools', level: 80 }
   ];
 
   return (
@@ -73,45 +61,26 @@ const Skills = () => {
         </motion.div>
 
         <div className="skills-content">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={categoryIndex}
-              className="skill-category"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-            >
-              <h3 className="category-title">{category.title}</h3>
-              <div className="skills-grid">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skillIndex}
-                    className="skill-card"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.5, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
-                    whileHover={{ y: -5 }}
-                  >
-                    <div className="skill-header">
-                      <div className="skill-icon">
-                        {skill.icon}
-                      </div>
-                      <div className="skill-info">
-                        <h4 className="skill-name">{skill.name}</h4>
-                        <span className="skill-level">{skill.level}%</span>
-                      </div>
-                    </div>
-                    <div className="skill-progress">
-                      <div 
-                        className="skill-progress-bar"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          <motion.div
+            className="skills-grid"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                className="skill-icon-card"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                title={skill.name}
+              >
+                {skill.icon}
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
 
         <motion.div

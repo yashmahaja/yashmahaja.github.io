@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { FiMenu, FiX, FiGithub, FiLinkedin, FiMail, FiMoon, FiSun } from 'react-icons/fi';
+import { FiMenu, FiX, FiGithub, FiLinkedin, FiMoon, FiSun } from 'react-icons/fi';
+import { SiLeetcode } from 'react-icons/si';
 import { Link, useLocation } from 'react-router-dom';
 import './Layout.css';
 
@@ -36,7 +37,7 @@ const Layout = ({ children }) => {
   // Handle scroll spy for active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+      const sections = ['home', 'about', 'skills', 'experience', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -59,7 +60,6 @@ const Layout = ({ children }) => {
       '/about': 'about',
       '/skills': 'skills',
       '/experience': 'experience',
-      '/projects': 'projects',
       '/contact': 'contact',
       '/blogs': 'blogs'
     };
@@ -100,7 +100,6 @@ const Layout = ({ children }) => {
     { id: 'about', label: 'About', sectionId: 'about', path: '/about' },
     { id: 'skills', label: 'Skills', sectionId: 'skills', path: '/skills' },
     { id: 'experience', label: 'Experience', sectionId: 'experience', path: '/experience' },
-    { id: 'projects', label: 'Projects', sectionId: 'projects', path: '/projects' },
     { id: 'blogs', label: 'Blogs', sectionId: 'blogs', path: '/blogs' },
     { id: 'contact', label: 'Contact', sectionId: 'contact', path: '/contact' }
   ], []);
@@ -108,8 +107,8 @@ const Layout = ({ children }) => {
   // Memoize social links
   const socialLinks = useMemo(() => [
     { href: 'https://github.com/yashmahaja', icon: <FiGithub />, label: 'GitHub' },
-    { href: 'https://www.linkedin.com/in/yashpmahajan', icon: <FiLinkedin />, label: 'LinkedIn' },
-    { href: 'mailto:yashmahajan0521@gmail.com', icon: <FiMail />, label: 'Email' }
+    { href: 'https://leetcode.com/u/_yashmahajan/', icon: <SiLeetcode />, label: 'LeetCode' },
+    { href: 'https://www.linkedin.com/in/yashpmahajan', icon: <FiLinkedin />, label: 'LinkedIn' }
   ], []);
 
   // Optimized animation variants

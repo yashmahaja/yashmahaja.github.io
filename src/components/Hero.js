@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiDownload, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { FiDownload, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { SiLeetcode } from 'react-icons/si';
 import './Hero.css';
 
 const Hero = () => {
@@ -59,7 +60,6 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 1.2 }}
             >
               <button className="btn btn-primary" onClick={scrollToContact}>
-                <FiMail />
                 Get In Touch
               </button>
               <a href="/resume.pdf" className="btn btn-secondary" download>
@@ -77,11 +77,11 @@ const Hero = () => {
               <a href="https://github.com/yashmahaja" target="_blank" rel="noopener noreferrer" className="hero-social-link">
                 <FiGithub />
               </a>
+              <a href="https://leetcode.com/u/_yashmahajan/" target="_blank" rel="noopener noreferrer" className="hero-social-link">
+                <SiLeetcode />
+              </a>
               <a href="https://www.linkedin.com/in/yashpmahajan" target="_blank" rel="noopener noreferrer" className="hero-social-link">
                 <FiLinkedin />
-              </a>
-              <a href="mailto:yashmahajan0521@gmail.com" className="hero-social-link">
-                <FiMail />
               </a>
             </motion.div>
           </motion.div>
