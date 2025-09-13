@@ -153,16 +153,29 @@ const Layout = ({ children }) => {
           </motion.div>
 
           <div className="nav-menu">
-            {navItems.map((item) => (
-              <Link
-                key={item.id}
-                to={item.path}
-                className={`nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
-                onClick={() => handleNavClick(item.sectionId)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              if (item.sectionId === 'blogs') {
+                return (
+                  <Link
+                    key={item.id}
+                    to={item.path}
+                    className={`nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
+                    onClick={() => handleNavClick(item.sectionId)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+              return (
+                <button
+                  key={item.id}
+                  className={`nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
+                  onClick={() => handleNavClick(item.sectionId)}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
           </div>
 
           <div className="nav-controls">
@@ -191,16 +204,29 @@ const Layout = ({ children }) => {
               className="mobile-menu"
               {...mobileMenuVariants}
             >
-              {navItems.map((item) => (
-                <Link
-                  key={item.id}
-                  to={item.path}
-                  className={`mobile-nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
-                  onClick={() => handleNavClick(item.sectionId)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                if (item.sectionId === 'blogs') {
+                  return (
+                    <Link
+                      key={item.id}
+                      to={item.path}
+                      className={`mobile-nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
+                      onClick={() => handleNavClick(item.sectionId)}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+                return (
+                  <button
+                    key={item.id}
+                    className={`mobile-nav-link ${activeSection === item.sectionId ? 'active' : ''}`}
+                    onClick={() => handleNavClick(item.sectionId)}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
               <div className="mobile-social">
                 {socialLinks.map((link) => (
                   <a 
