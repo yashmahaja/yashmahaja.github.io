@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiGithub, FiExternalLink, FiCode } from 'react-icons/fi';
+import { FiGithub, FiCode } from 'react-icons/fi';
 import { FaReact, FaPython, FaJava } from 'react-icons/fa';
 import { SiPostgresql, SiDocker, SiMongodb } from 'react-icons/si';
 import './Projects.css';
@@ -151,15 +151,6 @@ const Projects = () => {
                   >
                     <FiGithub />
                     Code
-                  </a>
-                  <a 
-                    href={project.live} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="project-link live"
-                  >
-                    <FiExternalLink />
-                    Live Demo
                   </a>
                 </div>
               </div>
