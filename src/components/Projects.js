@@ -18,24 +18,24 @@ const Projects = () => {
     {
       id: 1,
       title: 'AutoTradeIQ - AI Stock Navigator',
-      description: 'An AI-driven trading platform leveraging LangChain and MCP to extract insights from SEC filings, earnings calls, and real-time market feeds. Features Spring Boot microservices and Dijkstra\'s algorithm for risk-adjusted path optimization.',
+      description: 'Architected a modular AI-driven trading platform leveraging LangChain and MCP to extract insights from SEC filings, earnings calls, and real-time market feeds, boosted stock prediction accuracy by 23% over the baseline. Designed Spring Boot microservices that orchestrate LLM analysis with financial datasets. Implemented Dijkstra\'s algorithm to predict swing high/low movements by optimizing risk-adjusted paths across 50+ equities.',
       image: '/api/placeholder/400/250',
       category: 'fullstack',
       technologies: ['React.js', 'Spring Boot', 'LangChain', 'OpenAI MCP', 'Dijkstra', 'Docker', 'CI/CD'],
       icons: [<FaReact />, <FaJava />, <FaPython />],
-      github: 'https://github.com/yashmahaja/autotradeiq',
+      github: 'https://github.com/yashmahaja/AutoTradeIQ',
       live: '#',
       featured: true
     },
     {
       id: 2,
       title: 'Attire Avenue - E-commerce Platform',
-      description: 'A full-stack e-commerce platform using React.js frontend and Spring Boot with MySQL backend. Features GraphQL integration, user authentication, role-based access control, and JWT-secured API endpoints.',
+      description: 'Developed a full-stack e-commerce platform using React.js (frontend) and Spring Boot with MySQL (backend), following MVC architecture to manage and display 1,000+ products. Integrated GraphQL to streamline data querying and reduce payload size by 40%, improving frontend load times and responsiveness. Implemented user authentication, role-based access control, and secured API endpoints using JWT.',
       image: '/api/placeholder/400/250',
       category: 'fullstack',
       technologies: ['React.js', 'Spring Boot', 'GraphQL', 'MySQL', 'Docker', 'CI/CD', 'Jenkins'],
       icons: [<FaReact />, <FaJava />, <SiPostgresql />],
-      github: 'https://github.com/yashmahaja/attire-avenue',
+      github: 'https://github.com/yashmahaja/AttireAvenue_Frontend',
       live: '#',
       featured: true
     },

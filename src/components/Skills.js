@@ -127,7 +127,9 @@ const Skills = () => {
               'CI/CD Pipeline', 'Agile Methodology', 'Pytest', 'JUnit',
               'Linux', 'GitHub Actions', 'Data Structures',
               'Algorithms', 'Machine Learning', 'Big Data',
-              'ETL Pipeline', 'Snowflake', 'LangChain', 'OpenAI MCP'
+              'ETL Pipeline', 'LangChain', 'OpenAI MCP', 'AWS SageMaker',
+              'AWS Rekognition', 'AWS Step Functions', 'AWS Lambda',
+              'Spring Data JPA', 'JWT', 'MVC Architecture'
             ].map((skill, index) => (
               <motion.span
                 key={index}

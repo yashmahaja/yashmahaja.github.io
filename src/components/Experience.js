@@ -20,46 +20,32 @@ const Experience = () => {
       type: 'Co-op',
       description: 'Developing innovative solutions for energy clients, focusing on battery optimization metrics and financial reporting systems.',
       achievements: [
-        'Developed React-Redux dashboard for battery optimization metrics, reducing load times by 80% through lazy loading and code splitting',
-        'Engineered RESTful API endpoints using Python FastAPI and SQL queries for pricing and reserve product data',
-        'Added caching for pricing Athena queries, cutting repeated queries by 60% during peak usage',
-        'Built daily IESO financial reporting with AWS Step Functions and Lambda, reducing report generation time by 99%',
-        'Automated CI/CD workflows using Docker & Terraform to provision AWS Athena views'
+        'Developed a React-Redux dashboard to display battery optimization metrics for energy clients, enabling faster access to key data and reducing load times by 80% through lazy loading and code splitting',
+        'Engineered RESTful API endpoints using Spring Boot and SQL queries to retrieve pricing and reserve product data based on delivery dates, improving the accuracy and timeliness of financial reports used by stakeholders',
+        'Created 10+ SQL AWS Athena views for schedules and pricing data, integrated views into FastAPI endpoints to enable efficient querying and retrieval, improving reporting speed by 65%',
+        'Automated daily IESO financial reporting with AWS Step Functions and AWS Lambda querying IESO portal APIs, calculating revenue metrics, and writing results to AWS DynamoDB, reducing report generation time by 99%',
+        'Streamlined financial report generation by automating build processes with Docker and deploying infrastructure with Terraform through GitHub Actions, eliminating errors and reducing manual deployment effort by 99%'
       ],
-      technologies: ['React.js', 'Redux', 'Python', 'FastAPI', 'AWS', 'Docker', 'Terraform']
+      technologies: ['React.js', 'Redux', 'Spring Boot', 'FastAPI', 'AWS', 'Docker', 'Terraform', 'GitHub Actions']
     },
     {
       id: 2,
-      title: 'Grading Assistant',
-      company: 'Rochester Institute of Technology',
-      location: 'Rochester, NY',
-      period: 'Jun 2024 - May 2025',
-      type: 'Part-time',
-      description: 'Provided academic support and evaluation for computer science courses, focusing on computer networks and programming fundamentals.',
-      achievements: [
-        'Evaluated assignments and provided feedback on computer networks and formal languages for 70+ students',
-        'Devised C++ test cases to assess Mechanics of Programming submissions for correctness and edge-case handling',
-        'Maintained high standards for code quality and academic integrity'
-      ],
-      technologies: ['C++', 'Computer Networks', 'Formal Languages', 'Testing']
-    },
-    {
-      id: 3,
-      title: 'Software Engineer Trainee',
-      company: 'Nihilent Ltd.',
+      title: 'Software Engineer',
+      company: 'Nihilent Technologies Pvt Ltd.',
       location: 'Pune, India',
       period: 'Jun 2022 - Jun 2023',
       type: 'Full-time',
       description: 'Developed ETL pipelines and data processing solutions for financial fraud detection and reporting.',
       achievements: [
-        'Designed OCR-based ETL pipeline using Python and Azure Form Recognizer to extract data from PDF invoices',
-        'Optimized SQL queries in Snowflake to extract, transform, and load over 1TB of data daily into AWS S3',
-        'Achieved over 95% accuracy in financial fraud detection and reporting'
+        'Implemented an OCR-based ETL pipeline using Python and Azure Form Recognizer to extract key data from PDF invoices, transforming outputs into structured JSON and storing in AWS S3 for downstream analytics',
+        'Built an end-to-end fraud detection system in AWS SageMaker leveraging AWS Rekognition & rule-based logic to flag fraud bills',
+        'Processed 500+ daily invoices with 92% data-extraction accuracy, reducing invoice processing time by 63%',
+        'Automated ML workflows by orchestrating SageMaker jobs with AWS Step Functions triggered via AWS EventBridge, eliminating manual notebook runs and enabling fully automated, scalable model execution, reducing manual effort by 99%'
       ],
-      technologies: ['Python', 'Azure Form Recognizer', 'Snowflake', 'AWS S3', 'ETL']
+      technologies: ['Python', 'Azure Form Recognizer', 'AWS SageMaker', 'AWS Rekognition', 'AWS S3', 'ETL', 'Machine Learning']
     },
     {
-      id: 4,
+      id: 3,
       title: 'Software Engineer Intern',
       company: 'Precise IT Solutions Pvt. Ltd',
       location: 'Pune, India',
@@ -67,12 +53,11 @@ const Experience = () => {
       type: 'Internship',
       description: 'Developed full-stack e-commerce solutions with focus on responsive design and RESTful APIs.',
       achievements: [
-        'Engineered responsive web interfaces using React.js, enhancing real-time interactivity & UX consistency',
-        'Built RESTful APIs with Django for e-commerce platform, supporting 1,200+ SKUs with median response time under 200ms',
-        'Increased order throughput by 18% through optimized backend performance',
-        'Collaborated in agile sprints using AWS CloudWatch and CI/CD pipelines'
+        'Engineered responsive web interfaces using React.js, enhancing real-time interactivity & UX consistency across platforms',
+        'Designed Spring Boot CRUD APIs for product catalog, cart, and order endpoints, using Spring Data JPA for integration with the database ensuring structured data handling',
+        'Wrote SQL queries for data retrieval and reporting, joining product, cart, and order tables to validate API results, which improved data accuracy by 30%'
       ],
-      technologies: ['React.js', 'Django', 'REST APIs', 'AWS CloudWatch', 'CI/CD']
+      technologies: ['React.js', 'Spring Boot', 'Spring Data JPA', 'SQL', 'REST APIs']
     }
   ];
 
@@ -80,7 +65,7 @@ const Experience = () => {
     {
       name: 'AWS Certified Solutions Architect - Associate',
       issuer: 'Amazon Web Services',
-      date: '2024',
+      date: '2025',
       credential: 'AWS-SAA'
     }
   ];
