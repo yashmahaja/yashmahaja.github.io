@@ -7,20 +7,19 @@ import './Layout.css';
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    // Check for saved dark mode preference or default to light mode
+    // Check for saved dark mode preference or default to dark mode
     const savedDarkMode = localStorage.getItem('darkMode');
     if (savedDarkMode !== null) {
       setDarkMode(JSON.parse(savedDarkMode));
     } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setDarkMode(prefersDark);
+      // Default to dark mode
+      setDarkMode(true);
     }
   }, []);
 

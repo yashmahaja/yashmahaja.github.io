@@ -1,63 +1,64 @@
 .contact {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: var(--bg-secondary);
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: var(--text-primary);
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-top: 3rem;
+  gap: 2rem;
+  margin-top: 1.5rem;
 }
 
 .contact-info {
-  padding: 2rem;
+  padding: 1.5rem;
   background: var(--bg-primary);
   border-radius: 1rem;
   box-shadow: var(--shadow-md);
 }
 
 .contact-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
   color: var(--text-primary);
 }
 
 .contact-info p {
   color: var(--text-secondary);
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  font-size: 0.9rem;
 }
 
 .contact-details {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
   background: var(--bg-secondary);
   border-radius: 0.5rem;
   transition: all 0.1s ease;
@@ -73,16 +74,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: var(--primary-color);
   color: white;
   border-radius: 50%;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .contact-text h4 {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
   color: var(--text-primary);
@@ -99,8 +100,8 @@
 }
 
 .social-links h4 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
   color: var(--text-primary);
 }
 
@@ -113,12 +114,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: var(--bg-secondary);
   color: var(--text-secondary);
   border-radius: 50%;
-  font-size: 1.25rem;
+  font-size: 1rem;
   transition: all 0.1s ease;
   border: 2px solid transparent;
   transform: translateZ(0);
@@ -132,7 +133,7 @@
 }
 
 .contact-form-container {
-  padding: 2rem;
+  padding: 1.5rem;
   background: var(--bg-primary);
   border-radius: 1rem;
   box-shadow: var(--shadow-md);
@@ -141,7 +142,7 @@
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .form-group {
@@ -157,10 +158,10 @@
 
 .form-group input,
 .form-group textarea {
-  padding: 0.75rem;
+  padding: 0.6rem;
   border: 2px solid var(--border-color);
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: all 0.1s ease;
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -185,16 +186,16 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   background: var(--gradient-primary);
   color: white;
   border: none;
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.1s ease;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   transform: translateZ(0);
 }
 
@@ -224,32 +225,36 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .contact {
+    padding: 2rem 0;
+  }
+  
   .contact-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-  }
-
-  .contact-info,
-  .contact-form-container {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact {
-    padding: 3rem 0;
+    gap: 1.5rem;
   }
 
   .section-title {
     font-size: 2rem;
   }
 
+  .contact-info,
+  .contact-form-container {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 2rem 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
   .section-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .contact-info,
