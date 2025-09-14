@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
   // Handle scroll spy for active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'contact'];
+      const sections = ['home', 'about', 'skills', 'experience', 'projects'];
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -59,7 +59,7 @@ const Layout = ({ children }) => {
       '/about': 'about',
       '/skills': 'skills',
       '/experience': 'experience',
-      '/contact': 'contact',
+      '/projects': 'projects',
       '/blogs': 'blogs'
     };
     
@@ -99,8 +99,8 @@ const Layout = ({ children }) => {
     { id: 'about', label: 'About', sectionId: 'about', path: '/about' },
     { id: 'skills', label: 'Skills', sectionId: 'skills', path: '/skills' },
     { id: 'experience', label: 'Experience', sectionId: 'experience', path: '/experience' },
-    { id: 'blogs', label: 'Blogs', sectionId: 'blogs', path: '/blogs' },
-    { id: 'contact', label: 'Contact', sectionId: 'contact', path: '/contact' }
+    { id: 'projects', label: 'Projects', sectionId: 'projects', path: '/projects' },
+    { id: 'blogs', label: 'Blogs', sectionId: 'blogs', path: '/blogs' }
   ], []);
 
   // Memoize social links

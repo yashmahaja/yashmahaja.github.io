@@ -20,7 +20,7 @@ const Projects = () => {
       title: 'AutoTradeIQ - AI Stock Navigator',
       description: 'AI-driven trading platform using LangChain and MCP for SEC filing analysis. Boosted stock prediction accuracy by 23% with Spring Boot microservices and Dijkstra algorithm for risk optimization.',
       image: '/api/placeholder/400/250',
-      category: 'fullstack',
+      category: 'web',
       technologies: ['React.js', 'Spring Boot', 'LangChain', 'OpenAI MCP', 'Dijkstra', 'Docker', 'CI/CD'],
       icons: [<FaReact />, <FaJava />, <FaPython />],
       github: 'https://github.com/yashmahaja/AutoTradeIQ',
@@ -32,7 +32,7 @@ const Projects = () => {
       title: 'Attire Avenue - E-commerce Platform',
       description: 'Full-stack e-commerce platform with React.js and Spring Boot. Integrated GraphQL to reduce payload size by 40% and implemented JWT authentication with role-based access control.',
       image: '/api/placeholder/400/250',
-      category: 'fullstack',
+      category: 'web',
       technologies: ['React.js', 'Spring Boot', 'GraphQL', 'MySQL', 'Docker', 'CI/CD', 'Jenkins'],
       icons: [<FaReact />, <FaJava />, <SiPostgresql />],
       github: 'https://github.com/yashmahaja/AttireAvenue_Frontend',
@@ -44,7 +44,7 @@ const Projects = () => {
       title: 'Flickbase - Picture Sharing Platform',
       description: 'Picture-sharing web app built with MERN stack. Features JWT authentication, photo uploads, infinite scroll, and image color analysis with Material-UI and Docker containerization.',
       image: '/api/placeholder/400/250',
-      category: 'fullstack',
+      category: 'web',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Material-UI', 'Docker', 'Redux Toolkit'],
       icons: [<FaReact />, <SiMongodb />, <SiDocker />],
       github: 'https://github.com/yashmahaja/Flickbase',
@@ -56,7 +56,7 @@ const Projects = () => {
       title: 'Convex Hull Visualization Tool',
       description: 'Interactive visualization tool for convex hull algorithms (Brute Force, Jarvis March, Graham Scan, etc.). Features step-by-step execution and time complexity analysis for educational purposes.',
       image: '/api/placeholder/400/250',
-      category: 'frontend',
+      category: 'web',
       technologies: ['React', 'JavaScript', 'Canvas API', 'Algorithms', 'Data Structures', 'Visualization'],
       icons: [<FaReact />, <FaPython />, <FaJava />],
       github: 'https://github.com/yashmahaja/ConvexHull',
@@ -66,11 +66,9 @@ const Projects = () => {
   ];
 
   const filters = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'fullstack', label: 'Full Stack' },
-    { id: 'frontend', label: 'Frontend' },
-    { id: 'backend', label: 'Backend' },
-    { id: 'devops', label: 'DevOps' }
+    { id: 'all', label: 'All' },
+    { id: 'android', label: 'Android' },
+    { id: 'web', label: 'Web' }
   ];
 
   const filteredProjects = activeFilter === 'all' 
