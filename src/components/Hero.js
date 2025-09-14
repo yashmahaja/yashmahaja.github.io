@@ -1,10 +1,12 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { FiDownload, FiGithub, FiLinkedin } from 'react-icons/fi';
 import { SiLeetcode } from 'react-icons/si';
 import './Hero.css';
 
 const Hero = () => {
+  const shouldReduceMotion = useReducedMotion();
+  
   const scrollToContact = () => {
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
   };
@@ -20,33 +22,33 @@ const Hero = () => {
         <div className="hero-content">
           <motion.div 
             className="hero-text"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : 0.1 }}
           >
             <motion.p 
               className="hero-greeting"
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.4, delay: shouldReduceMotion ? 0 : 0.2 }}
             >
                              🚀 Hello, I'm
             </motion.p>
             
             <motion.h1 
               className="hero-title"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : 0.3 }}
             >
               <span className="text-gradient" style={{ whiteSpace: 'nowrap' }}>Yash Mahajan</span>
             </motion.h1>
             
             <motion.h2 
               className="hero-subtitle"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : 0.4 }}
             >
               Software Engineer & CS Master's Student
             </motion.h2>
@@ -55,9 +57,9 @@ const Hero = () => {
             
             <motion.div 
               className="hero-buttons"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : 0.5 }}
             >
               <button className="btn btn-primary" onClick={scrollToContact}>
                 Get In Touch
@@ -70,9 +72,9 @@ const Hero = () => {
             
             <motion.div 
               className="hero-social"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.4, delay: shouldReduceMotion ? 0 : 0.6 }}
             >
               <a href="https://github.com/yashmahaja" target="_blank" rel="noopener noreferrer" className="hero-social-link">
                 <FiGithub />
@@ -88,9 +90,9 @@ const Hero = () => {
           
           <motion.div 
             className="hero-visual"
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: shouldReduceMotion ? 0 : 0.2 }}
           >
             <div className="hero-card">
               <div className="hero-card-content">
@@ -132,4 +134,4 @@ console.log("Hello World! 👋");`}
   );
 };
 
-export default Hero;
+export default React.memo(Hero);

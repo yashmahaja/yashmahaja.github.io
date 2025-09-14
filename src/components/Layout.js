@@ -33,22 +33,34 @@ const Layout = ({ children }) => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
-  // Handle scroll spy for active section
+  // Handle scroll spy for active section with throttling and memoization
   useEffect(() => {
+    let ticking = false;
+    let lastActiveSection = 'home';
+    
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects'];
-      const scrollPosition = window.scrollY + 100;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const sections = ['home', 'about', 'skills', 'experience', 'projects'];
+          const scrollPosition = window.scrollY + 100;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
-        }
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = document.getElementById(sections[i]);
+            if (section && section.offsetTop <= scrollPosition) {
+              if (lastActiveSection !== sections[i]) {
+                setActiveSection(sections[i]);
+                lastActiveSection = sections[i];
+              }
+              break;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -110,18 +122,18 @@ const Layout = ({ children }) => {
     { href: 'https://www.linkedin.com/in/yashpmahajan', icon: <FiLinkedin />, label: 'LinkedIn' }
   ], []);
 
-  // Optimized animation variants
+  // Optimized animation variants with reduced motion
   const logoVariants = useMemo(() => ({
     initial: { opacity: 0, x: shouldReduceMotion ? 0 : -20 },
     animate: { opacity: 1, x: 0 },
-    transition: { duration: shouldReduceMotion ? 0 : 0.3 }
+    transition: { duration: shouldReduceMotion ? 0 : 0.2, ease: "easeOut" }
   }), [shouldReduceMotion]);
 
   const mobileMenuVariants = useMemo(() => ({
     initial: { opacity: 0, height: 0 },
     animate: { opacity: 1, height: 'auto' },
     exit: { opacity: 0, height: 0 },
-    transition: { duration: shouldReduceMotion ? 0 : 0.2 }
+    transition: { duration: shouldReduceMotion ? 0 : 0.15, ease: "easeInOut" }
   }), [shouldReduceMotion]);
 
   return (

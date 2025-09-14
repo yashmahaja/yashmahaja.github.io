@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useMemo } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaReact, FaPython, FaJava, FaDocker, FaAws, FaHtml5, FaCss3Alt, FaAngular } from 'react-icons/fa';
 import { SiJavascript, SiNodedotjs, SiMongodb, SiPostgresql, SiGit, SiJenkins, SiJira, SiDjango, SiFlask, SiTerraform } from 'react-icons/si';
@@ -10,8 +10,10 @@ const Skills = () => {
     threshold: 0.3,
     triggerOnce: true
   });
+  
+  const shouldReduceMotion = useReducedMotion();
 
-  const skills = [
+  const skills = useMemo(() => [
     // Languages
     { name: 'Python', icon: <FaPython />, category: 'Languages', level: 90 },
     { name: 'Java', icon: <FaJava />, category: 'Languages', level: 85 },
@@ -40,7 +42,7 @@ const Skills = () => {
     { name: 'Git', icon: <SiGit />, category: 'Tools', level: 90 },
     { name: 'Jenkins', icon: <SiJenkins />, category: 'DevOps', level: 75 },
     { name: 'Jira', icon: <SiJira />, category: 'Tools', level: 80 }
-  ];
+  ], []);
 
   return (
     <section id="skills" className="skills">
@@ -73,8 +75,8 @@ const Skills = () => {
                 className="skill-icon-card"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                whileHover={{ scale: 1.1, y: -5 }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.3, delay: shouldReduceMotion ? 0 : index * 0.03 }}
+                whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -3 }}
                 title={skill.name}
               >
                 {skill.icon}
@@ -105,8 +107,8 @@ const Skills = () => {
                 className="skill-tag"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.3, delay: 0.6 + (index * 0.02) }}
-                whileHover={{ scale: 1.05 }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.2, delay: shouldReduceMotion ? 0 : 0.4 + (index * 0.01) }}
+                whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
               >
                 {skill}
               </motion.span>
@@ -118,4 +120,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default React.memo(Skills);

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useMemo, useCallback } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiGithub, FiCode, FiExternalLink } from 'react-icons/fi';
 import { FaReact, FaPython, FaJava } from 'react-icons/fa';
@@ -13,8 +13,9 @@ const Projects = () => {
   });
 
   const [activeFilter, setActiveFilter] = useState('all');
+  const shouldReduceMotion = useReducedMotion();
 
-  const projects = [
+  const projects = useMemo(() => [
     {
       id: 1,
       title: 'AutoTradeIQ - AI Stock Navigator',
@@ -63,17 +64,24 @@ const Projects = () => {
       live: 'https://convex-hull-ui.vercel.app/',
       featured: true
     }
-  ];
+  ], []);
 
-  const filters = [
+  const filters = useMemo(() => [
     { id: 'all', label: 'All' },
     { id: 'android', label: 'Android' },
     { id: 'web', label: 'Web' }
-  ];
+  ], []);
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filteredProjects = useMemo(() => 
+    activeFilter === 'all' 
+      ? projects 
+      : projects.filter(project => project.category === activeFilter),
+    [activeFilter, projects]
+  );
+
+  const handleFilterChange = useCallback((filterId) => {
+    setActiveFilter(filterId);
+  }, []);
 
   return (
     <section id="projects" className="projects">
@@ -103,7 +111,7 @@ const Projects = () => {
             <button
               key={filter.id}
               className={`filter-btn ${activeFilter === filter.id ? 'active' : ''}`}
-              onClick={() => setActiveFilter(filter.id)}
+              onClick={() => handleFilterChange(filter.id)}
             >
               {filter.label}
             </button>
@@ -117,8 +125,8 @@ const Projects = () => {
               className="project-card"
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-              whileHover={{ y: -5 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.4, delay: shouldReduceMotion ? 0 : 0.1 + index * 0.05 }}
+              whileHover={shouldReduceMotion ? {} : { y: -5 }}
             >
               <div className="project-image">
                 <div className="project-image-placeholder">
@@ -179,4 +187,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default React.memo(Projects);
