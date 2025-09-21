@@ -224,7 +224,7 @@ const Layout = ({ children }) => {
 
       {/* Footer */}
       <footer className="footer">
-        <div className="container">
+
           <div className="footer-content">
             <div className="footer-left">
               <p>&copy; 2025 Yash Mahajan</p>
@@ -248,7 +248,7 @@ const Layout = ({ children }) => {
               </a>
             </div>
           </div>
-        </div>
+  
       </footer>
     </div>
   );
