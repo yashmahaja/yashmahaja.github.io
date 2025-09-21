@@ -227,7 +227,7 @@
   background: var(--bg-dark);
   color: white;
   padding: 2rem 0;
-  margin-top: 4rem;
+  margin-top: 0;
 }
 
 .footer-content {

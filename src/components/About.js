@@ -54,26 +54,31 @@ const About = () => {
     <>
       <h3>Who I Am</h3>
       <p>
-        I'm a passionate Software Engineer and Computer Science Master's student at Rochester Institute of Technology (RIT). 
-        With a strong foundation in both theoretical and practical aspects of computer science, I love creating innovative 
-        solutions that make a real impact in the energy sector and beyond.
+        I'm Yash Mahajan a Software Engineer and Master's student in Computer Science at 
+        Rochester Institute of Technology (RIT). With a strong foundation in both theoretical 
+        and practical aspects of computer science, I enjoy creating innovative, 
+        scalable, and user-friendly applications that make a real impact.
       </p>
-      
+  
       <p>
-        My journey in technology began with curiosity and has evolved into a deep passion for building scalable, 
-        user-friendly applications. I specialize in React.js, Python FastAPI, AWS cloud services, and full-stack development. 
-        I believe in writing clean, maintainable code and staying up-to-date with the latest industry trends and best practices.
+        My journey in technology began with curiosity and has grown into a drive to 
+        build meaningful solutions. I specialize in React.js, Kotlin, Spring Boot, 
+        Python, AWS cloud services, and full-stack development. 
+        I focus on writing clean, maintainable code and staying up-to-date with the 
+        latest tools and best practices.
       </p>
-
+  
       <h3>My Background</h3>
       <p>
-        Currently pursuing my Master's in Computer Science at RIT (Aug 2023 - Dec 2025), I'm focusing on advanced software engineering 
-        principles, machine learning, and cloud computing. My academic background combined with hands-on project 
-        experience has equipped me with a comprehensive understanding of modern software development, particularly in 
-        energy optimization and financial reporting systems.
+        Alongside my Computer Science studies at RIT, I also hold an Integrated Master's 
+        in Bioengineering. This combination gives me a unique perspective at the intersection 
+        of technology and applied science. My academic training, paired with hands-on 
+        project experience, has equipped me with a comprehensive understanding of 
+        modern software engineering, cloud computing, and machine learning.
       </p>
     </>
   ), []);
+  
 
   const highlightsContent = useMemo(() => [
     { icon: '🎯', title: 'Goal-Oriented', desc: 'Focused on delivering high-quality solutions that meet business objectives' },
@@ -145,6 +150,14 @@ const About = () => {
             className="about-stats"
             variants={itemVariants}
           >
+            <div className="profile-image-container">
+              <img 
+                src="/me.jpeg" 
+                alt="Yash Mahajan" 
+                className="profile-image"
+              />
+            </div>
+            
             <div className="stats-grid">
               {stats.map((stat, index) => (
                 <motion.div

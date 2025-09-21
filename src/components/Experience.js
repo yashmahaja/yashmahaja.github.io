@@ -22,7 +22,7 @@ const Experience = () => {
       achievements: [
         'Developed a React-Redux dashboard to display battery optimization metrics for energy clients, enabling faster access to key data and reducing load times by 80% through lazy loading and code splitting',
         'Engineered RESTful API endpoints using Spring Boot and SQL queries to retrieve pricing and reserve product data based on delivery dates, improving the accuracy and timeliness of financial reports used by stakeholders',
-        'Created 10+ SQL AWS Athena views for schedules and pricing data, integrated views into FastAPI endpoints to enable efficient querying and retrieval, improving reporting speed by 65%',
+        'Created 10+ SQL AWS Athena views for schedules and pricing data, integrated views into Spring Boot endpoints to enable efficient querying and retrieval, improving reporting speed by 65%',
         'Automated daily IESO financial reporting with AWS Step Functions and AWS Lambda querying IESO portal APIs, calculating revenue metrics, and writing results to AWS DynamoDB, reducing report generation time by 99%',
         'Streamlined financial report generation by automating build processes with Docker and deploying infrastructure with Terraform through GitHub Actions, eliminating errors and reducing manual deployment effort by 99%'
       ],

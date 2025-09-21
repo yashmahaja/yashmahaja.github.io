@@ -226,7 +226,27 @@ const Layout = ({ children }) => {
       <footer className="footer">
         <div className="container">
           <div className="footer-content">
-            <p>&copy; 2025 Made with ❤️ Yash Mahajan</p>
+            <div className="footer-left">
+              <p>&copy; 2025 Yash Mahajan</p>
+            </div>
+            <div className="footer-social">
+              <a 
+                href="https://github.com/yashmahaja" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <FiGithub />
+              </a>
+              <a 
+                href="https://linkedin.com/in/yashmahaja" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FiLinkedin />
+              </a>
+            </div>
           </div>
         </div>
       </footer>

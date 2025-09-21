@@ -1,6 +1,21 @@
 .about {
-  padding: 6rem 0;
-  background: var(--bg-secondary);
+  padding: 4rem 0;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, transparent 60%, rgba(99, 102, 241, 0.05) 100%);
+  pointer-events: none;
 }
 
 .section-header {
@@ -62,6 +77,13 @@
   box-shadow: var(--shadow-sm);
   transition: all 0.1s ease;
   transform: translateZ(0);
+  border: 1px solid var(--border-color);
+}
+
+/* Dark mode support for highlight items */
+.dark-mode .highlight-item {
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
 }
 
 .highlight-item:hover {
@@ -87,6 +109,29 @@
   margin: 0;
 }
 
+/* Profile Image */
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.profile-image {
+  width: 400px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  border: 4px solid var(--primary-color);
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
+  background: var(--bg-secondary);
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-xl);
+}
+
 /* Stats Section */
 .stats-grid {
   display: grid;
@@ -105,6 +150,13 @@
   align-items: center;
   gap: 1rem;
   transform: translateZ(0);
+  border: 1px solid var(--border-color);
+}
+
+/* Dark mode support for stat cards */
+.dark-mode .stat-card {
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
 }
 
 .stat-card:hover {
@@ -148,6 +200,13 @@
   padding: 2rem;
   border-radius: 16px;
   box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+/* Dark mode support for education card */
+.dark-mode .education-card {
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
 }
 
 .education-card h3 {
@@ -242,6 +301,11 @@
     font-size: 1rem;
   }
 
+  .profile-image {
+    width: 360px;
+    height: auto;
+  }
+
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -273,6 +337,11 @@
 
   .about-text h3 {
     font-size: 1.125rem;
+  }
+
+  .profile-image {
+    width: 320px;
+    height: auto;
   }
 
   .stat-card {
