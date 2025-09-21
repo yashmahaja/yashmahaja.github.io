@@ -230,12 +230,16 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  width: 100%;
+  padding: 0 2rem;
 }
 
 .footer-left p {
   margin: 0;
   font-size: 0.9rem;
   color: var(--text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .footer-social {
@@ -257,6 +261,66 @@
   transform: translateZ(0);
   box-shadow: var(--shadow-sm);
   font-size: 0.9rem;
+}
+
+/* Responsive footer for larger screens */
+@media (min-width: 1200px) {
+  .footer-content {
+    padding: 0 3rem;
+  }
+  
+  .footer-left p {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .footer-social a {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+  
+  .footer-social {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .footer-content {
+    padding: 0 4rem;
+  }
+  
+  .footer-left p {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .footer-social a {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .footer-content {
+    padding: 0 5rem;
+  }
+  
+  .footer-left p {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+  
+  .footer-social {
+    gap: 2rem;
+  }
 }
 
 .footer-social a:hover {

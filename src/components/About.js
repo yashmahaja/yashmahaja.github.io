@@ -152,7 +152,7 @@ const About = () => {
           >
             <div className="profile-image-container">
               <img 
-                src="/me.jpeg" 
+                src={process.env.PUBLIC_URL + "/Me.JPEG"} 
                 alt="Yash Mahajan" 
                 className="profile-image"
               />
