@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaReact, FaPython, FaJava, FaDocker, FaAws, FaHtml5, FaCss3Alt, FaAngular } from 'react-icons/fa';
-import { SiJavascript, SiNodedotjs, SiMongodb, SiPostgresql, SiGit, SiJenkins, SiJira, SiDjango, SiFlask, SiTerraform } from 'react-icons/si';
+import { SiJavascript, SiMongodb, SiPostgresql, SiGit, SiJenkins, SiJira, SiDjango, SiFlask, SiTerraform, SiSpring, SiKotlin } from 'react-icons/si';
 import './Skills.css';
 
 const Skills = () => {
@@ -17,6 +17,7 @@ const Skills = () => {
     // Languages
     { name: 'Python', icon: <FaPython />, category: 'Languages', level: 90 },
     { name: 'Java', icon: <FaJava />, category: 'Languages', level: 85 },
+    { name: 'Kotlin', icon: <SiKotlin />, category: 'Languages', level: 80 },
     { name: 'JavaScript', icon: <SiJavascript />, category: 'Languages', level: 85 },
     { name: 'HTML5', icon: <FaHtml5 />, category: 'Languages', level: 90 },
     { name: 'CSS3', icon: <FaCss3Alt />, category: 'Languages', level: 90 },
@@ -25,7 +26,7 @@ const Skills = () => {
     // Frontend & Frameworks
     { name: 'React.js', icon: <FaReact />, category: 'Frontend', level: 90 },
     { name: 'Angular', icon: <FaAngular />, category: 'Frontend', level: 75 },
-    { name: 'Node.js', icon: <SiNodedotjs />, category: 'Backend', level: 80 },
+    { name: 'Spring Boot', icon: <SiSpring />, category: 'Backend', level: 85 },
     { name: 'Django', icon: <SiDjango />, category: 'Backend', level: 85 },
     { name: 'Flask', icon: <SiFlask />, category: 'Backend', level: 80 },
     

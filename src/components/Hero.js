@@ -109,18 +109,18 @@ const Hero = () => {
                     <pre>
                       <code>
 {`const yash = {
-  name: "Yash Mahajan",
-  role: "Software Engineer",
-  education: "MS CS @ RIT",
-  skills: [
-    "React.js", "Python", "Java",
-    "AWS", "Node.js", "FastAPI"
-  ],
-  passion: "Building innovative solutions",
-  location: "San Jose, CA"
-};
-
-console.log("Hello World! 👋");`}
+    name: "Yash Mahajan",
+    role: "Software Engineer",
+    education: "MS CS @ RIT",
+    skills: [
+      "React.js", "Python", "Java",
+      "Spring Boot", "Kotlin", "AWS"
+    ],
+    passion: "Building innovative solutions",
+    location: "San Jose, CA"
+  };
+  
+  console.log("Hello World! 👋");`}
                       </code>
                     </pre>
                   </div>

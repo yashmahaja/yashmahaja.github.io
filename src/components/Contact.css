@@ -5,6 +5,12 @@
   overflow: hidden;
 }
 
+/* Dark mode support */
+.dark-mode .contact {
+  background: var(--bg-primary);
+}
+
+
 .contact::before {
   content: '';
   position: absolute;
@@ -12,10 +18,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    radial-gradient(circle at 30% 70%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
-    linear-gradient(90deg, transparent 30%, rgba(99, 102, 241, 0.04) 100%);
+  background: linear-gradient(-135deg, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -43,12 +46,24 @@
 .contact-form-container {
   max-width: 450px;
   width: 100%;
-  padding: 1rem 2rem 2rem 2rem;
+  padding: 2rem;
   margin: 0 auto;
   background: var(--bg-primary);
   border-radius: 20px;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
 
 .email-display {
@@ -56,11 +71,15 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  padding: 0.75rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
   background: var(--bg-secondary);
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .contact-info {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiSend, FiMail, FiUser } from 'react-icons/fi';
+import { FiSend, FiMail, FiUser, FiCheck } from 'react-icons/fi';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 
@@ -18,6 +18,7 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSent, setIsSent] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -51,8 +52,13 @@ const Contact = () => {
       console.log('Email sent successfully:', result);
       
       setIsSubmitting(false);
+      setIsSent(true);
       setFormData({ name: '', email: '', message: '' });
-      alert('Thank you for your message! I will get back to you soon.');
+      
+      // Reset the sent state after 3 seconds
+      setTimeout(() => {
+        setIsSent(false);
+      }, 3000);
     } catch (error) {
       console.error('Error sending email:', error);
       setIsSubmitting(false);
@@ -134,13 +140,23 @@ const Contact = () => {
 
             <button 
               type="submit" 
-              className="submit-btn"
-              disabled={isSubmitting}
+              className={`submit-btn ${isSent ? 'sent' : ''}`}
+              disabled={isSubmitting || isSent}
+              style={isSent ? { 
+                background: '#10b981', 
+                color: 'white',
+                transform: 'translateY(-2px)'
+              } : {}}
             >
               {isSubmitting ? (
                 <>
                   <div className="spinner"></div>
                   Sending...
+                </>
+              ) : isSent ? (
+                <>
+                  <FiCheck />
+                  Sent
                 </>
               ) : (
                 <>
