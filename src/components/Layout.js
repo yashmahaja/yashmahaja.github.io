@@ -33,35 +33,37 @@ const Layout = ({ children }) => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
-  // Handle scroll spy for active section with throttling and memoization
+  // Optimized scroll spy with better throttling
   useEffect(() => {
-    let ticking = false;
+    let timeoutId = null;
     let lastActiveSection = 'home';
     
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const sections = ['home', 'about', 'skills', 'experience', 'projects'];
-          const scrollPosition = window.scrollY + 100;
+      if (timeoutId) return;
+      
+      timeoutId = setTimeout(() => {
+        const sections = ['home', 'about', 'skills', 'experience', 'projects'];
+        const scrollPosition = window.scrollY + 100;
 
-          for (let i = sections.length - 1; i >= 0; i--) {
-            const section = document.getElementById(sections[i]);
-            if (section && section.offsetTop <= scrollPosition) {
-              if (lastActiveSection !== sections[i]) {
-                setActiveSection(sections[i]);
-                lastActiveSection = sections[i];
-              }
-              break;
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = document.getElementById(sections[i]);
+          if (section && section.offsetTop <= scrollPosition) {
+            if (lastActiveSection !== sections[i]) {
+              setActiveSection(sections[i]);
+              lastActiveSection = sections[i];
             }
+            break;
           }
-          ticking = false;
-        });
-        ticking = true;
-      }
+        }
+        timeoutId = null;
+      }, 100); // Throttle to 100ms
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   // Set active section based on current path

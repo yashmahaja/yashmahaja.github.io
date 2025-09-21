@@ -48,8 +48,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-primary);
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-  background-attachment: fixed;
+  background: var(--bg-primary);
   line-height: 1.6;
   /* Performance optimizations */
   text-rendering: optimizeSpeed;
@@ -60,7 +59,7 @@ body {
   zoom: 0.9;
 }
 
-/* Modern geometric background */
+/* Simplified background for better performance */
 body::before {
   content: '';
   position: fixed;
@@ -68,11 +67,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    linear-gradient(45deg, transparent 40%, rgba(99, 102, 241, 0.03) 50%, transparent 60%),
-    linear-gradient(-45deg, transparent 30%, rgba(6, 182, 212, 0.03) 50%, transparent 70%),
-    linear-gradient(90deg, transparent 20%, rgba(245, 158, 11, 0.02) 50%, transparent 80%);
-  background-size: 200px 200px, 300px 300px, 400px 400px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.02) 0%, transparent 50%);
   pointer-events: none;
   z-index: -1;
 }
@@ -198,7 +193,6 @@ img {
 
 .glass {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -233,7 +227,6 @@ img {
 
 /* Advanced performance optimizations */
 * {
-  /* Use transform and opacity for animations instead of layout properties */
   will-change: auto;
 }
 
@@ -241,26 +234,23 @@ img {
 .gpu-accelerated {
   transform: translateZ(0);
   backface-visibility: hidden;
-  perspective: 1000px;
 }
 
 /* Optimize transitions */
 .transition-optimized {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.15s ease, transform 0.15s ease;
   will-change: opacity, transform;
 }
 
-/* Reduce motion for users who prefer it */
+/* Reduce animation complexity */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
+
 
 /* Performance optimizations for mobile */
 @media (max-width: 768px) {
