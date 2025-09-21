@@ -56,6 +56,8 @@ body {
   font-feature-settings: "kern" 1;
   font-kerning: normal;
   position: relative;
+  font-size: 14px;
+  zoom: 0.9;
 }
 
 /* Modern geometric background */
