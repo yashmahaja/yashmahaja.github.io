@@ -64,7 +64,7 @@ const Hero = () => {
               <button className="btn btn-primary" onClick={scrollToContact}>
                 Get In Touch
               </button>
-              <a href="/resume.pdf" className="btn btn-secondary" download>
+              <a href="/YashMahajan_Resume.pdf" className="btn btn-secondary" download>
                 <FiDownload />
                 Download Resume
               </a>
